@@ -27,6 +27,6 @@ export embree_DIR=`readlink -f embree-3.12.2/lib/cmake/embree-3.12.2`
 pip install .
 ```
 
-## Tutorial
+## Examples
 
-Please refer to `examples/demo.py` for RGBD rendering from a triangle mesh.
+Start by setting up the demo conda environment by running `conda env create -f examples/env.yml` and activate it `conda activate raybender`. Next, install RayBender by following the instructions above. Please refer to `examples/demo.py` for a minimal RGBD rendering examples from a triangle mesh.
