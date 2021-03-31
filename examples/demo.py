@@ -63,7 +63,7 @@ if __name__ == '__main__':
     # Intersect rays with scene.
     t0 = time.time()
     geom_ids, bcoords = rb.ray_scene_intersection(scene, ray_origins, ray_directions)
-    print('Intersection between ray and scenes - %.5fs' % (time.time() - t0))
+    print('Intersection between rays and scene - %.5fs' % (time.time() - t0))
 
     # Filter out rays without intersections.
     geom_ids, tri_ids, bcoords, valid = rbutils.filter_intersections(geom_ids, bcoords)
