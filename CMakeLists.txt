@@ -8,5 +8,5 @@ find_package(embree 3.0 REQUIRED)
 
 add_subdirectory(pybind11)
 
-pybind11_add_module(raybender main.cc)
-target_link_libraries(raybender PUBLIC OpenMP::OpenMP_CXX embree)
+pybind11_add_module(_raybender lib/main.cc)
+target_link_libraries(_raybender PUBLIC OpenMP::OpenMP_CXX embree)

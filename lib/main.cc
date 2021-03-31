@@ -2,12 +2,12 @@
 
 namespace py = pybind11;
 
-#include "lib/geometry.cc"
-#include "lib/interpolator.cc"
-#include "lib/ray.cc"
-#include "lib/scene.cc"
+#include "geometry.cc"
+#include "interpolator.cc"
+#include "ray.cc"
+#include "scene.cc"
 
-PYBIND11_MODULE(raybender, m) {
+PYBIND11_MODULE(_raybender, m) {
     m.doc() = "Ray Tracing bindings";
 
     // Scene bindings.

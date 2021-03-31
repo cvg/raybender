@@ -1,3 +1,4 @@
 startup.sh
 *.png
+*.npy
 embree-3.12.2

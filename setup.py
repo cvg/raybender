@@ -66,7 +66,9 @@ setup(
     author_email='mihai.dusmanu@inf.ethz.ch',
     description='Ray Tracing bindings',
     long_description='',
-    ext_modules=[CMakeExtension('raybender')],
+    ext_modules=[CMakeExtension('raybender._raybender')],
     cmdclass=dict(build_ext=CMakeBuild),
-    zip_safe=False,
+    setup_requires=['numpy'],
+    install_requires=['numpy'],
+    packages=['raybender']
 )
