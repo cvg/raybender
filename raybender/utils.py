@@ -43,7 +43,7 @@ def filter_intersections(geom_ids, bcoords):
     return gids, tids, bcoords, valid
 
 
-def interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, bcoords, valid, R, w, h):
+def interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, bcoords, valid, R, tvec, w, h):
     import numpy as np
 
     from ._raybender import barycentric_interpolator
@@ -70,8 +70,8 @@ def interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, 
         locations = barycentric_interpolator(tri_ids, bcoords, triangles, vertices)
 
         # Compute depth.
-        Z = (R @ locations.T)[-1]
-        
+        Z = (R @ locations.T)[-1] + tvec[-1]
+
         # Populate final array.
         depth = np.full(num_rays, np.nan)
         depth[valid] = Z
