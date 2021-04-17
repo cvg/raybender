@@ -73,7 +73,7 @@ if __name__ == '__main__':
     t0 = time.time()
     # Interpolators should be called once for each mesh (geom_id) with its associated ray intersections.
     # In this case, we have a single mesh. Please refer to interpolate_rgbd_from_geometry for more details.
-    rgb, depth = rbutils.interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, bcoords, valid, R, w, h)
+    rgb, depth = rbutils.interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, bcoords, valid, R, tvec, w, h)
     print('Interpolation - %.5fs' % (time.time() - t0))
 
     # Save image and depth.
