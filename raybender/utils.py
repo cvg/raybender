@@ -53,13 +53,13 @@ def interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, 
 
     # Interpolate RGB.
     if vertex_colors is None:
-        rgb = np.full(num_rays * 3, 0)
+        rgb = np.full(num_rays * 3, 0.0)
     else:
         # Compute ray hit colors.
         mesh_rgb = barycentric_interpolator(tri_ids, bcoords, triangles, vertex_colors)
        
         # Populate final array.
-        rgb = np.full([num_rays, 3], 0)
+        rgb = np.full([num_rays, 3], 0.0)
         rgb[valid] = np.clip(mesh_rgb, 0, 1)
     
     # Interpolate depth.
