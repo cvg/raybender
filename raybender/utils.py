@@ -1,6 +1,6 @@
-def compute_rays_for_simple_pinhole_camera(R, tvec, intrinsics):
-    import numpy as np
+import numpy as np
 
+def compute_rays_for_simple_pinhole_camera(R, tvec, intrinsics):
     # Recover intrinsics.
     w, h, f, cx, cy = intrinsics
 
@@ -27,25 +27,18 @@ def compute_rays_for_simple_pinhole_camera(R, tvec, intrinsics):
 
 
 def filter_intersections(geom_ids, bcoords):
-    import numpy as np
-
     # Geometry id is -1 if ray doesn't interesect any mesh.
     valid = (geom_ids[:, 0] != -1)
-    gids = geom_ids[:, 0][valid]
     tids = geom_ids[:, 1][valid]
     bcoords = bcoords[valid]
-    
+
     # Outputs must be contiguous.
-    gids = np.ascontiguousarray(gids)
     tids = np.ascontiguousarray(tids)
     bcoords = np.ascontiguousarray(bcoords)
-
-    return gids, tids, bcoords, valid
+    return tids, bcoords, valid
 
 
 def interpolate_rgbd_from_geometry(triangles, vertices, vertex_colors, tri_ids, bcoords, valid, R, tvec, w, h):
-    import numpy as np
-
     from ._raybender import barycentric_interpolator
 
     # Number of rays.

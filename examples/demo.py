@@ -66,8 +66,8 @@ if __name__ == '__main__':
     print('Intersection between rays and scene - %.5fs' % (time.time() - t0))
 
     # Filter out rays without intersections.
-    geom_ids, tri_ids, bcoords, valid = rbutils.filter_intersections(geom_ids, bcoords)
-    print('Percentage of valid rays - %.2f%%' % (geom_ids.shape[0] / ray_origins.shape[0] * 100))
+    tri_ids, bcoords, valid = rbutils.filter_intersections(geom_ids, bcoords)
+    print('Percentage of valid rays - %.2f%%' % (tri_ids.shape[0] / ray_origins.shape[0] * 100))
 
     # Use barycentric interpolator to recover depth and RGB.
     t0 = time.time()
