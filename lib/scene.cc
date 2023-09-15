@@ -5,7 +5,7 @@ void* create_scene(std::string config) {
     RTCScene scene = rtcNewScene(device);
     // Avoid optimizations that lower the arithmetic accuracy.
     // Solves most problems with rays passing through edges / vertices.
-    rtcSetSceneFlags(scene, RTC_SCENE_FLAG_ROBUST);
+    rtcSetSceneFlags(scene, RTC_SCENE_FLAG_COMPACT | RTC_SCENE_FLAG_ROBUST);
     return (void*)scene;
 }
 
